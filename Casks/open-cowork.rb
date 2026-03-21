@@ -12,6 +12,14 @@ cask "open-cowork" do
 
   app "Open Cowork.app"
 
+  caveats <<~EOS
+    Open Cowork is not signed with an Apple Developer certificate.
+    If macOS shows "Apple cannot verify this app", reinstall with:
+      brew reinstall --cask --no-quarantine open-cowork
+    Or manually remove the quarantine flag:
+      xattr -rd com.apple.quarantine /Applications/Open\\ Cowork.app
+  EOS
+
   zap trash: [
     "~/Library/Application Support/open-cowork",
     "~/Library/Preferences/com.opencowork.app.plist",

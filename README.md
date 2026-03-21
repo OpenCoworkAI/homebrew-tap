@@ -8,8 +8,10 @@ Official [Homebrew](https://brew.sh) Cask tap for [Open Cowork](https://github.c
 
 ```bash
 brew tap OpenCoworkAI/tap
-brew install --cask open-cowork
+brew install --cask --no-quarantine open-cowork
 ```
+
+> **Note:** The `--no-quarantine` flag prevents macOS Gatekeeper from blocking the app. Open Cowork is open-source but not signed with an Apple Developer certificate, so this flag is recommended.
 
 ## Upgrade
 
@@ -25,7 +27,7 @@ brew uninstall --cask open-cowork
 
 ## Why use Homebrew?
 
-Installing via Homebrew automatically removes the macOS Gatekeeper quarantine flag, so you won't see the "app is damaged" warning that affects unsigned DMG downloads.
+When you install with `--no-quarantine`, Homebrew skips the macOS Gatekeeper quarantine check entirely. This means no "Apple cannot verify this app" warning — the app just opens normally.
 
 ## How it works
 
