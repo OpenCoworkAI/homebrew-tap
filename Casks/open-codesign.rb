@@ -1,15 +1,15 @@
 cask "open-codesign" do
-  version "0.1.2"
+  version "0.1.3"
 
   on_arm do
     url "https://github.com/OpenCoworkAI/open-codesign/releases/download/v#{version}/open-codesign-#{version}-arm64.dmg",
         verified: "github.com/OpenCoworkAI/open-codesign/"
-    sha256 "6c3be603e32340c017b66ad8cd01822aa21a98cc28c3aac56912a94c0b53d5c4"
+    sha256 "dc2997ad9e283d9f11320501f84dca9d56e9c9ec96b84d90a84160e71e20b34b"
   end
   on_intel do
     url "https://github.com/OpenCoworkAI/open-codesign/releases/download/v#{version}/open-codesign-#{version}-x64.dmg",
         verified: "github.com/OpenCoworkAI/open-codesign/"
-    sha256 "349efb65326ff067c85b4d07731bcd04e17319707e3709f9c33a327ce9141753"
+    sha256 "9498c7cd2c412b67ffdc2b0daa5812c78e77d624365cd08ca9a41a7b0730d83d"
   end
 
   name "Open CoDesign"
@@ -24,7 +24,7 @@ cask "open-codesign" do
   auto_updates false
   depends_on macos: ">= :big_sur"
 
-  app "open-codesign.app"
+  app "Open CoDesign.app"
 
   # Unsigned build — macOS will refuse the first launch with a generic
   # "damaged, move to Trash" dialog. Code-signing + notarization is on the
@@ -33,7 +33,7 @@ cask "open-codesign" do
     #{token} is not yet notarized. On first launch macOS may refuse to open
     it. To bypass, either right-click the app and choose Open, or run:
 
-      xattr -d com.apple.quarantine /Applications/open-codesign.app
+      xattr -d com.apple.quarantine /Applications/Open CoDesign.app
 
     You only need to do this once per install/update.
   EOS
