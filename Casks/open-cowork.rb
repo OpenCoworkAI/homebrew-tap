@@ -1,6 +1,6 @@
 cask "open-cowork" do
-  version "3.3.0"
-  sha256 "b89681852c603b281f7e4ddb63c6d8399600409188247673efc62c7152f28b8d"
+  version "3.3.1"
+  sha256 "489c5c27329aa84a90b7d97b147bf3b8094e7a54eabb7ea88d6c1ecf69b696be"
 
   url "https://github.com/OpenCoworkAI/open-cowork/releases/download/v#{version}/Open.Cowork-#{version}-mac-arm64.dmg"
   name "Open Cowork"
