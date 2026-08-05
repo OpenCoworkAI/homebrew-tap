@@ -2,14 +2,16 @@ cask "open-codesign" do
   version "0.2.1"
 
   on_arm do
+    sha256 "9e8ac362a79fdbe929913d3d5fb296b0b803fe7b2d680d1d0f71b7e3c0aaed70"
+
     url "https://github.com/OpenCoworkAI/open-codesign/releases/download/v#{version}/open-codesign-#{version}-arm64.dmg",
         verified: "github.com/OpenCoworkAI/open-codesign/"
-    sha256 "9e8ac362a79fdbe929913d3d5fb296b0b803fe7b2d680d1d0f71b7e3c0aaed70"
   end
   on_intel do
+    sha256 "6899f89169c37893575c597f1e98512ada873465cc2e9710b58d83e25342b8f3"
+
     url "https://github.com/OpenCoworkAI/open-codesign/releases/download/v#{version}/open-codesign-#{version}-x64.dmg",
         verified: "github.com/OpenCoworkAI/open-codesign/"
-    sha256 "6899f89169c37893575c597f1e98512ada873465cc2e9710b58d83e25342b8f3"
   end
 
   name "Open CoDesign"
@@ -22,9 +24,16 @@ cask "open-codesign" do
   end
 
   auto_updates false
-  depends_on macos: ">= :big_sur"
+  depends_on macos: :big_sur
 
   app "Open CoDesign.app"
+
+  zap trash: [
+    "~/Library/Application Support/open-codesign",
+    "~/Library/Logs/open-codesign",
+    "~/Library/Preferences/ai.opencowork.codesign.plist",
+    "~/Library/Saved Application State/ai.opencowork.codesign.savedState",
+  ]
 
   # Unsigned build — macOS will refuse the first launch with a generic
   # "damaged, move to Trash" dialog. Code-signing + notarization is on the
@@ -37,11 +46,4 @@ cask "open-codesign" do
 
     You only need to do this once per install/update.
   EOS
-
-  zap trash: [
-    "~/Library/Application Support/open-codesign",
-    "~/Library/Preferences/ai.opencowork.codesign.plist",
-    "~/Library/Logs/open-codesign",
-    "~/Library/Saved Application State/ai.opencowork.codesign.savedState",
-  ]
 end
