@@ -22,7 +22,7 @@ cask "open-codesign" do
   end
 
   auto_updates false
-  depends_on macos: ">= :big_sur"
+  depends_on macos: :big_sur
 
   app "Open CoDesign.app"
 
@@ -33,7 +33,7 @@ cask "open-codesign" do
     #{token} is not yet notarized. On first launch macOS may refuse to open
     it. To bypass, either right-click the app and choose Open, or run:
 
-      xattr -d com.apple.quarantine /Applications/Open CoDesign.app
+      xattr -d com.apple.quarantine /Applications/Open\ CoDesign.app
 
     You only need to do this once per install/update.
   EOS
