@@ -7,7 +7,7 @@ cask "open-cowork" do
   desc "Desktop AI agent app with sandboxed environment"
   homepage "https://github.com/OpenCoworkAI/open-cowork"
 
-  depends_on macos: ">= :ventura"
+  depends_on macos: :ventura
   depends_on arch: :arm64
 
   app "Open Cowork.app"
