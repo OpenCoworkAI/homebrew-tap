@@ -7,10 +7,15 @@ cask "open-cowork" do
   desc "Desktop AI agent app with sandboxed environment"
   homepage "https://github.com/OpenCoworkAI/open-cowork"
 
-  depends_on macos: ">= :ventura"
   depends_on arch: :arm64
+  depends_on macos: :ventura
 
   app "Open Cowork.app"
+
+  zap trash: [
+    "~/Library/Application Support/open-cowork",
+    "~/Library/Preferences/com.opencowork.app.plist",
+  ]
 
   caveats <<~EOS
     Open Cowork is not signed with an Apple Developer certificate.
@@ -19,9 +24,4 @@ cask "open-cowork" do
     Or manually remove the quarantine flag:
       xattr -rd com.apple.quarantine /Applications/Open\\ Cowork.app
   EOS
-
-  zap trash: [
-    "~/Library/Application Support/open-cowork",
-    "~/Library/Preferences/com.opencowork.app.plist",
-  ]
 end
